@@ -1,4 +1,11 @@
 # Plugin Manager UI
+
+Running Url-
+
+[Plugin-ui](https://faker-server.herokuapp.com/)
+
+[jsno-server](https://faker-server.herokuapp.com/)
+
 ## Installation
 
 ### Dependency Installation
@@ -49,7 +56,7 @@ npm run test:report
   - https://github.com/anand-tiwari/plugin-manager-ui
 
 ### Backend Server
-- As a backend server i am using ```json-server``` deployed in heroku
+- As a backend server i am using ```json-server``` deployed in heroku [JSON-SERVER](https://faker-server.herokuapp.com/)
 
 ## Tech
 - [Vue.js](https://v3.vuejs.org/) - HTML enhanced for web apps!
