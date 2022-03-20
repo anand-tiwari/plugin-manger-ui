@@ -7,7 +7,7 @@
         "start": "vue-cli-service serve --mode staging",
         "build": "vue-cli-service build --mode staging",
         "build:dev": "vue-cli-service build --mode development",
-        "preview": "npm run build:stage && node build/index.js --mode staging",
+        "preview": "npm run build && node build/index.js --mode staging",
         "lint": "vue-cli-service lint",
         "lint:fix": "eslint --ext .js,.vue src tests/unit --fix",
         "posttest": "node build/post-unit-test.js",
