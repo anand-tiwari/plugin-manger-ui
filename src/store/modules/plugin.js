@@ -48,8 +48,9 @@ const actions = {
         pluginApi.getPlugins().then(response => {
             commit('setLoading', false)
             const selectedTab = response.data.data.tabs[0]
+            const isAllPluginEnabled = response.data.data.isAllPluginEnabled
             dispatch('updatePlugins', { data: response.data.data, selectedTab: selectedTab })
-            success && success(selectedTab)
+            success && success(selectedTab, isAllPluginEnabled)
         }).catch(res => commit('setLoading', false))
     },
     postPlugins({ commit }, { data }) {

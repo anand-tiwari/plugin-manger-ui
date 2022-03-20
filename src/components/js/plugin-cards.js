@@ -15,14 +15,14 @@ export default {
     },
     methods: {
         ...mapActions('plugin', ['updatePlugins', 'postPlugins']),
-        updatePluginStatus({ pluginid, status }) {
+        updatePluginStatus({ pluginId, status }) {
             const respones = {...this.pluginsResponse }
             if (status === 'active') {
-                respones.tabdata[this.selectedTab].inactive = respones.tabdata[this.selectedTab].inactive.filter(e => e !== pluginid)
-                respones.tabdata[this.selectedTab].active = [...(respones.tabdata[this.selectedTab].active), pluginid]
+                respones.tabdata[this.selectedTab].inactive = respones.tabdata[this.selectedTab].inactive.filter(e => e !== pluginId)
+                respones.tabdata[this.selectedTab].active = [...(respones.tabdata[this.selectedTab].active), pluginId]
             } else {
-                respones.tabdata[this.selectedTab].active = respones.tabdata[this.selectedTab].active.filter(e => e !== pluginid)
-                respones.tabdata[this.selectedTab].inactive = [...(respones.tabdata[this.selectedTab].inactive), pluginid]
+                respones.tabdata[this.selectedTab].active = respones.tabdata[this.selectedTab].active.filter(e => e !== pluginId)
+                respones.tabdata[this.selectedTab].inactive = [...(respones.tabdata[this.selectedTab].inactive), pluginId]
             }
             this.updatePlugins({
                 data: respones,

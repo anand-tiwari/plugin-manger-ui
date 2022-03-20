@@ -7,7 +7,7 @@
             <Tabs :selectedTab="selectedTab" @selectTab="selectTab" />
             <div class="tab_section__plugin-btn">
                 <span>All Plugins Enabled</span>
-                <SwitchButton :modelValue="isAllPluginEnable" @update:modelValue="toggleAllPluginEnableBtn" />
+                <SwitchButton :modelValue="isAllPluginEnabled" @update:modelValue="toggleAllPluginEnableBtn" />
             </div>
         </div>
         <div class="plugin_heading">{{pluginHeading}}</div>

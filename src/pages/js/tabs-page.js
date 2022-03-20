@@ -8,7 +8,7 @@ export default {
     components: { Tabs, SwitchButton, Spinner },
     data() {
         return {
-            isAllPluginEnable: true,
+            isAllPluginEnabled: true,
             selectedTab: ""
         }
     },
@@ -25,8 +25,9 @@ export default {
         ...mapActions('plugin', ['updatePlugins', 'updateSelectedTabPluign', 'fetchPlugin', 'postPlugins']),
         fetchData() {
             this.fetchPlugin({
-                success: (selectedTab) => {
+                success: (selectedTab, isAllPluginEnabled) => {
                     this.selectedTab = selectedTab;
+                    this.isAllPluginEnabled = isAllPluginEnabled;
                     this.$router.push(`/${selectedTab}`)
                 }
             })
@@ -35,11 +36,11 @@ export default {
             this.selectedTab = selectedTab
             this.updateSelectedTabPluign({ selectedTab: this.selectedTab })
         },
-        toggleAllPluginEnableBtn(isAllPluginEnable) {
+        toggleAllPluginEnableBtn(allPluginStatus) {
             const tabs = this.pluginsResponse.tabs;
             const tabdata = this.pluginsResponse.tabdata;
-            this.isAllPluginEnable = isAllPluginEnable;
-            if (isAllPluginEnable === false) {
+            this.isAllPluginEnabled = allPluginStatus;
+            if (allPluginStatus === false) {
                 tabs.forEach((key, value) => {
                     tabdata[key]['disabled'] = [...(tabdata[key]['active']), ...(tabdata[key]['inactive']), ...(tabdata[key]['disabled'])]
                 })
@@ -50,7 +51,7 @@ export default {
                 })
             }
 
-            const res = {...this.pluginsResponse, tabs, tabdata }
+            const res = {...this.pluginsResponse, tabs, tabdata, isAllPluginEnabled: this.isAllPluginEnabled }
             this.updatePlugins({
                 data: res,
                 selectedTab: this.selectedTab
